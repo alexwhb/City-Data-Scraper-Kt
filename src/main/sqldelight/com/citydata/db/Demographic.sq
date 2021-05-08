@@ -1,0 +1,13 @@
+
+CREATE TABLE Demographic(
+   `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+    type TEXT NOT NULL, -- This is like Race Demographic, or Meratal status... etc
+    title TEXT NOT NULL, -- individual subheading of demographic
+    percentageOfPopulation REAL AS Float NOT NULL,
+    totalPeople INTEGER,
+    cityId INTEGER NOT NULL,
+    FOREIGN KEY(`cityId`) REFERENCES `CityData`(`id`)
+);
+
+insert:
+INSERT INTO Demographic(type, title, percentageOfPopulation, totalPeople, cityId) VALUES ?;

@@ -1,0 +1,13 @@
+
+
+CREATE TABLE Mesurement(
+   `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    amount REAL AS Float NOT NULL,
+    unitOfMeasure TEXT NOT NULL,
+    cityId INTEGER NOT NULL,
+    FOREIGN KEY(`cityId`) REFERENCES `CityData`(`id`)
+);
+
+insert:
+INSERT INTO Mesurement(name, amount, unitOfMeasure, cityId) VALUES ?;

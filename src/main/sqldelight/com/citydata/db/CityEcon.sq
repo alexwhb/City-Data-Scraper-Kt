@@ -1,0 +1,15 @@
+
+
+CREATE TABLE CityEcon(
+   `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+    description TEXT NOT NULL, -- This is like Race Demographic, or Meratal status... etc
+    recentValue INTEGER NOT NULL, -- individual subheading of demographic
+    yearOfRecentValue INTEGER AS Int NOT NULL,
+    oldValue INTEGER NOT NULL,
+    yearOfOldValue INTEGER AS Int NOT NULL,
+    cityId INTEGER NOT NULL,
+    FOREIGN KEY(`cityId`) REFERENCES `CityData`(`id`)
+);
+
+insert:
+INSERT INTO CityEcon(description, recentValue, yearOfRecentValue, oldValue, yearOfOldValue, cityId) VALUES ?;
