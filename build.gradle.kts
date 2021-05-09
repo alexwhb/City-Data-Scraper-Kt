@@ -31,6 +31,7 @@ dependencies {
     implementation("it.skrape:skrapeit:1.1.1")
     implementation( "com.squareup.sqldelight:sqlite-driver:1.4.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-RC")
+    implementation("io.github.microutils:kotlin-logging-jvm:2.0.6")
 }
 
 sqldelight {

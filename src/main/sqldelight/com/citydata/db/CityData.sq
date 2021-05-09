@@ -10,13 +10,15 @@ CREATE TABLE CityData (
     `femalePopulation` INTEGER,
     `medianAge` REAL AS Float,
     `medianAgeForState` REAL AS Float,
+    `medianGrossRent` INTEGER,
+    `medianGroseRentYearDataAcquired` INTEGER AS Int,
     `costOfLivingIndex` REAL AS Float,
     `costOfLivingIndexYearDataAcquired` INTEGER AS Int
 );
 
 insert:
 INSERT OR REPLACE INTO CityData(name, state, url, populationTotal, populationInYear, malePopulation, femalePopulation,
-medianAge, medianAgeForState, costOfLivingIndex, costOfLivingIndexYearDataAcquired) VALUES ?;
+medianAge, medianAgeForState, medianGrossRent,medianGroseRentYearDataAcquired, costOfLivingIndex, costOfLivingIndexYearDataAcquired) VALUES ?;
 
 lastInsertedId:
 SELECT last_insert_rowid();
