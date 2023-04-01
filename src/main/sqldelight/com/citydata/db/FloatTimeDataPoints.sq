@@ -1,0 +1,13 @@
+
+-- This will allow me to add float datapoints with a date assoceated.
+CREATE TABLE FloatTimeDataPoint(
+   `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+    description TEXT NOT NULL,
+    value REAL AS Float NOT NULL,
+    yearOfValue INTEGER AS Int NOT NULL,
+    cityId INTEGER NOT NULL,
+    FOREIGN KEY(`cityId`) REFERENCES `CityData`(`id`)
+);
+
+insert:
+INSERT INTO FloatTimeDataPoint(description, value, yearOfValue, cityId) VALUES ?;

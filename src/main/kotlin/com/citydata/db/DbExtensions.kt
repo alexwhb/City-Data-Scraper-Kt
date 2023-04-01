@@ -5,12 +5,22 @@ import com.citydata.*
 
 fun CityEconDao.saveToDb(cityId: Long) {
 //    println("Saving $description to db")
-    db.cityEconQueries.insert(CityEcon(-1, description, recentValue, yearOfRecentValue, oldValue, yearOfOldValue, cityId))
+    db.cityEconQueries.insert(
+        CityEcon(
+            -1,
+            description,
+            recentValue,
+            yearOfRecentValue,
+            oldValue,
+            yearOfOldValue,
+            cityId
+        )
+    )
 }
 
 fun MeasurementDao.saveToDb(name: String, cityId: Long) {
 //    println("Saving $name to db")
-    db.mesurementQueries.insert(Mesurement(-1, name, amount, unitOfMeasure, cityId ))
+    db.mesurementQueries.insert(Mesurement(-1, name, amount, unitOfMeasure, cityId))
 }
 
 fun DemographicDao.saveToDb(type: String, cityId: Long) {
@@ -21,8 +31,25 @@ fun DemographicDao.saveToDb(type: String, cityId: Long) {
 fun CityDataDao.saveToDb() {
     logger.info { "Saving city data to db" }
     db.cityDataQueries.insert(
-        CityData(-1, cityName, state, url, populationTotal, populationInYear, malePopulation,
-        femalePopulation, medianAge, medianAgeForState, medianGrossRent, medianGrossRentYearDataAcquired, costOfLivingIndex, costOfLivingIndexYearDataAcquired)
+        CityData(
+            -1,
+            cityName,
+            state,
+            url,
+            populationTotal,
+            populationInYear,
+            malePopulation,
+            femalePopulation,
+            medianAge,
+            medianAgeForState,
+            medianGrossRent,
+            medianGrossRentYearDataAcquired,
+            costOfLivingIndex,
+            costOfLivingIndexYearDataAcquired,
+            walkScoreInfo.walkScore,
+            walkScoreInfo.bikeScore,
+            walkScoreInfo.transitScore
+        )
     )
 
     val cityId = db.cityDataQueries.lastInsertedId().executeAsOne()

@@ -1,0 +1,15 @@
+
+
+
+-- This will allow me to add integer datapoints with a date assoceated.
+CREATE TABLE IntegerTimeDataPoint(
+   `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+    description TEXT NOT NULL,
+    value INTEGER NOT NULL,
+    yearOfValue INTEGER AS Int NOT NULL,
+    cityId INTEGER NOT NULL,
+    FOREIGN KEY(`cityId`) REFERENCES `CityData`(`id`)
+);
+
+insert:
+INSERT INTO IntegerTimeDataPoint(description, value, yearOfValue, cityId) VALUES ?;

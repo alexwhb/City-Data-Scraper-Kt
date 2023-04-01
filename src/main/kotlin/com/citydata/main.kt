@@ -23,7 +23,7 @@ fun main(): Unit = runBlocking {
     stateExtractor(cityLinks)
     launch {
         cityLinks.mapIndexed { index, dao ->
-//            if (index > 50) return@mapIndexed
+            if (index > 50) return@mapIndexed
             logger.info { "Extracting: ${index+1} of ${cityLinks.size} - ${dao.cityName}   ${dao.cityUrl} "  }
             extractCityData(dao)
         }

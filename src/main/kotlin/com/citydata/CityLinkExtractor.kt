@@ -32,6 +32,7 @@ fun extractCityDataFromState(stateName: String, stateUrl: String): List<CityStat
                                     findAll {
                                         var cityName = ""
                                         var linkUrl = ""
+                                        var population = 0L
                                         mapIndexed { index, docElement ->
 
                                             // skip the first col because this just contains map info
@@ -58,11 +59,13 @@ fun extractCityDataFromState(stateName: String, stateUrl: String): List<CityStat
                                                     }
 
                                                 } else if (index == 2) {
+                                                    population = docElement.text.toLong()
                                                     logger.info { "city population: ${docElement.text}" }
                                                 }
                                             }
                                         }
-                                        data.add(CityStateDao(cityName, stateName, linkUrl))
+                                        // TODO add real population here.
+                                        data.add(CityStateDao(cityName, stateName, linkUrl, population))
                                     }
                                 }
                             }

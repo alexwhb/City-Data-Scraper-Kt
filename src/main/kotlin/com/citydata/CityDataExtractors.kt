@@ -13,12 +13,14 @@ fun main(){
     val cityData = CityDataDao()
     skrape(HttpFetcher) {
         request {
-            url = "https://www.city-data.com/city/Abbeville-Alabama.html"
+//            url = "https://www.city-data.com/city/Abbeville-Alabama.html"
+            url = "https://www.city-data.com/city/Corvallis-Oregon.html"
         }
 
         extract {
             htmlDocument {
-                extractNaturalDisasters(cityData)
+//                extractNaturalDisasters(cityData)
+                extractPercentLivingInPoverty(cityData)
             }
         }
     }
@@ -211,6 +213,20 @@ fun Doc.extractIncomeDemographics(cityDataDao: CityDataDao) {
         }
     }
 }
+
+fun Doc.extractPercentLivingInPoverty(cityDataDao: CityDataDao) {
+    section {
+        withId = "poverty-level"
+        findFirst {
+            cityDataDao.apply {
+                val groups = "Percentage of residents living in poverty in (\\d{4}): (\\d+\\.\\d+)\\%".toRegex().find(text)
+                populationLivingInPovertyYearOfData = groups?.groupValues?.get(1)?.toInt()
+                percentageOfPopulationLivingInPoverty = groups?.groupValues?.get(2)?.toFloat()
+            }
+        }
+    }
+}
+
 
 fun Doc.extractCostOfLivingIndex(cityDataDao: CityDataDao) {
     section {

@@ -1,6 +1,9 @@
 package com.citydata
 
-data class CityStateDao(val cityName: String, val state: String, val cityUrl:String)
+data class CityStateDao(val cityName: String,
+                        val state: String, // this is like Oregon
+                        val cityUrl:String,
+                        val population: Long)
 
 data class CityEconDao(
     val description: String,
@@ -26,6 +29,8 @@ data class CityDataDao(
     var medianHouseholdIncome: CityEconDao? = null,
     var medianIncomePerCapita: CityEconDao? = null,
     var medianHouseCondoValue: CityEconDao? = null,
+    var populationLivingInPovertyYearOfData: Int? = null,
+    var percentageOfPopulationLivingInPoverty: Float? = null,
     var medianGrossRent:Long? = null,
     var medianGrossRentYearDataAcquired : Int? = null,
     var costOfLivingIndex: Float? = null,
@@ -36,7 +41,8 @@ data class CityDataDao(
     var raceDemographic: MutableList<DemographicDao> = mutableListOf(),
     var maritalStatus: MutableList<DemographicDao> = mutableListOf(),
     var educationDemographic: MutableList<DemographicDao> = mutableListOf(),
-    var unemploymentDemographics: MutableList<DemographicDao> = mutableListOf()
+    var unemploymentDemographics: MutableList<DemographicDao> = mutableListOf(),
+    var walkScoreInfo: WalkScoreInfo = WalkScoreInfo()
 )
 
 data class MeasurementDao(val amount: Float, val unitOfMeasure: String)

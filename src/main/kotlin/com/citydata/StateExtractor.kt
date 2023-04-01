@@ -23,7 +23,7 @@ fun stateExtractor(cityLinks: MutableList<CityStateDao>) {
                         li {
                             findAll {
                                 this.mapIndexed { index, doc ->
-                                    if (index > 1) return@findAll
+                                    if (index > 2) return@findAll
                                     doc.eachLink.forEach { (state, url) ->
                                         cityLinks.addAll(extractCityDataFromState(state, "https:$url"))
                                     }

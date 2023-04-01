@@ -15,8 +15,8 @@ buildscript {
 
 
 plugins {
-    kotlin("jvm") version "1.5.0"
-    id("com.squareup.sqldelight") version "1.4.4"
+    kotlin("jvm") version "1.8.0"
+    id("com.squareup.sqldelight") version "1.5.5"
 }
 
 group = "com.blackstone"
@@ -29,7 +29,7 @@ repositories {
 
 dependencies {
     implementation("it.skrape:skrapeit:1.1.1")
-    implementation( "com.squareup.sqldelight:sqlite-driver:1.4.4")
+    implementation( "com.squareup.sqldelight:sqlite-driver:1.5.5")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-RC")
     implementation("io.github.microutils:kotlin-logging-jvm:2.0.6")
 }
